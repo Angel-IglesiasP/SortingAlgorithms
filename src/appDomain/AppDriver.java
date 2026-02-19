@@ -40,18 +40,18 @@ public class AppDriver
             }
         }
 
-        // Required options
+        // in case the parametors are empty
         if (filename == null) exitWithError("Missing required option: -f <filename>");
         if (t == null) exitWithError("Missing required option: -t <h|a|v>");
         if (sortName == null) exitWithError("Missing required option: -s <algorithm>");
 
-        // 2) Load shapes (NOT part of benchmark)
+        // Load shapes 
         Shape[] original = FileHandler.loadShapes(filename);
 
-        // 3) Clone for fairness (NOT part of benchmark)
+        // clone the array to avoid mutation. each sort gets a disorganize array
         Shape[] working = original.clone();
 
-        // 4) Sort (benchmark ONLY this section)
+        // starts a timer and measure how quick an algorithm run and print it in the console
         long start = System.nanoTime();
 
         if ("b".equals(sortName))
@@ -65,18 +65,18 @@ public class AppDriver
 
         long end = System.nanoTime();
         long elapsedNs = end - start;
+        double elapsedMs = elapsedNs / 1_000_000.0;
 
-        // 5) Output required elements (NOT part of benchmark)
-        printReport(working, t, sortName, elapsedNs);
+        // prints the output to the console woth the time the algorithm name the first shape, last shape and every 1000shape
+        printReport(working, t, sortName, elapsedMs);
     }
 
-    private static void printReport(Shape[] arr, char t, String sortName, long elapsedNs)
+    private static void printReport(Shape[] arr, char t, String sortName, double elapsedMs)
     {
         int n = arr.length;
 
-        System.out.println("File loaded shapes: " + n);
-        System.out.println("Sort: " + sortName + " | Criterion (-t): " + t);
-        System.out.println("Sort time (ns): " + elapsedNs);
+        System.out.println("number of shapes: " + n);
+        System.out.printf("Sort time: %.3f miliseconds%n", elapsedMs);
         System.out.println();
 
         if (n == 0)
@@ -85,12 +85,10 @@ public class AppDriver
             return;
         }
 
-        System.out.println("First element (index 0):");
-        System.out.println(arr[0]);
+        System.out.println("First element is: " + arr[0]);
         System.out.println();
 
-        System.out.println("Last element (index " + (n - 1) + "):");
-        System.out.println(arr[n - 1]);
+        System.out.println("Last element (index " + (n - 1) + "): " + arr[n - 1]);
         System.out.println();
 
         System.out.println("Every 1000th element:");
