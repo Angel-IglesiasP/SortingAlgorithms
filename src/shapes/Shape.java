@@ -37,7 +37,13 @@ public abstract class Shape implements Comparable<Shape>
 	@Override
 	public String toString()
 	{
-
+	    return String.format(
+	        "%s | h=%.3f | base=%.3f | vol=%.3f",
+	        getClass().getSimpleName(),
+	        getHeight(),
+	        calcBaseArea(),
+	        calcVolume()
+	    );
 	}
 	
 	
