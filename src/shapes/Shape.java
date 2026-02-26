@@ -38,7 +38,7 @@ public abstract class Shape implements Comparable<Shape>
 	public String toString()
 	{
 	    return String.format(
-	        "%s | h=%.3f | base=%.3f | vol=%.3f",
+	        "%s | height=%.2f | base_area=%.2f | volume=%.2f",
 	        getClass().getSimpleName(),
 	        getHeight(),
 	        calcBaseArea(),

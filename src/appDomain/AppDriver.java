@@ -2,6 +2,10 @@ package appDomain;
 
 import shapes.Shape;
 import sortingAlgorithms.BubbleSort;
+import sortingAlgorithms.CombSort;
+import sortingAlgorithms.InsertionSort;
+import sortingAlgorithms.QuickSort;
+import sortingAlgorithms.SelectionSort;
 
 public class AppDriver
 {
@@ -70,6 +74,10 @@ public class AppDriver
         {
         	CombSort.combSort(working, t);
         }
+        else if ("q".equals(sortName))
+        {
+        	QuickSort.quickSort(working, t);
+        }
         else
         {
         	exitWithError("Unsupported sort algorithm: " + sortName + " (currently implemented: bubble)");
@@ -100,13 +108,15 @@ public class AppDriver
         System.out.println("First element is: " + arr[0]);
         System.out.println();
 
-        System.out.println("Last element (index " + (n - 1) + "): " + arr[n - 1]);
+        System.out.println("Last element is: " + arr[n - 1]);
         System.out.println();
 
-        System.out.println("Every 1000th element:");
+        System.out.println("------------------------------ Every 1000th element: ------------------------------");
+        System.out.println();
         for (int i = 0; i < n; i += 1000)
         {
             System.out.println("Index " + i + ": " + arr[i]);
+            System.out.println();
         }
     }
 
