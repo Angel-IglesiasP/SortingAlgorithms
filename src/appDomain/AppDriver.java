@@ -58,6 +58,18 @@ public class AppDriver
         {
             BubbleSort.bubbleSort(working, t);
         }
+        else if ("i".equals(sortName))
+        {
+        	InsertionSort.insertionSort(working, t);
+        }
+        else if ("s".equals(sortName))
+        {
+        	SelectionSort.selectionSort(working, t);
+        }
+        else if ("c".equals(sortName))
+        {
+        	CombSort.combSort(working, t);
+        }
         else
         {
         	exitWithError("Unsupported sort algorithm: " + sortName + " (currently implemented: bubble)");
