@@ -1,29 +1,33 @@
 package shapes;
 
-public abstract class Prism extends Shape
-{
+public abstract class Prism extends Shape {
 	//attribute
 	private double side;
 	
-	public Prism(double height, double side)
-	{
+	/**
+	 * Creates a prism.
+	 * @param height prism height
+	 * @param side side length of the regular base
+	 */
+	public Prism(double height, double side) {
 		super(height);
 		this.side = side;
 	}
 	
-	
 	/**
-	 * @return the side
+	 * Returns the polygon side length.
+	 * @return side length
 	 */
-	public double getSide()
-	{
+	public double getSide() {
 		return side;
 	}
 
-
 	@Override
-	public double calcVolume()
-	{
+	/**
+	 * Computes volume as base area multiplied by height.
+	 * @return volume
+	 */
+	public double calcVolume() {
 		return calcBaseArea() * getHeight();
 	}
 }

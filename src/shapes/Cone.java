@@ -1,32 +1,42 @@
 package shapes;
 
-public class Cone extends Shape
-{
-//attribute
+public class Cone extends Shape {
+	//attribute
 	private double radius;
 	
-	//non-default constructor
-	public Cone(double height, double radius)
-	{
+	/**
+	 * Creates a cone.
+	 * @param height cone height
+	 * @param radius cone radius
+	 */
+	public Cone(double height, double radius) {
 		super(height);
 		this.radius = radius;
 	}
 	
-	//getter
-	public double getRadius()
-	{
+	/**
+	 * Returns the cone radius.
+	 * @return radius
+	 */
+	public double getRadius() {
 		return radius;
 	}
 	
 	@Override
-	public double calcBaseArea()
-	{
+	/**
+	 * Computes base area (pi * r^2).
+	 * @return base area
+	 */
+	public double calcBaseArea() {
 		return Math.PI * radius * radius;
 	}
 	
 	@Override
-	public double calcVolume()
-	{
+	/**
+	 * Computes volume (base area * height / 3).
+	 * @return volume
+	 */
+	public double calcVolume() {
 		return calcBaseArea() * getHeight() / 3;
 	}
 }

@@ -1,44 +1,42 @@
 package shapes;
 
-public class Pyramid extends Shape
-{
+public class Pyramid extends Shape {
 	//attribute 
 	private double side;
 
-	//constructor
 	/**
-	 * @param height
+	 * Creates a square pyramid.
+	 * @param height pyramid height
+	 * @param side side length of the square base
 	 */
-	public Pyramid(double height, double side)
-	{
+	public Pyramid(double height, double side) {
 		super(height);
 		this.side = side;
 	}
 
-
-	//getter
 	/**
-	 * @return the side
+	 * Returns the base side length.
+	 * @return side length
 	 */
-	public double getSide()
-	{
+	public double getSide() {
 		return side;
 	}
 	
 	@Override
-	public double calcBaseArea()
-	{
+	/**
+	 * Computes base area (side^2).
+	 * @return base area
+	 */
+	public double calcBaseArea() {
 		return side * side;
 	}
 	
 	@Override
-	public double calcVolume()
-	{
+	/**
+	 * Computes volume (base area * height / 3).
+	 * @return volume
+	 */
+	public double calcVolume() {
 		return calcBaseArea() * getHeight() / 3;
 	}
-	
-	
-	
 }
-
-
